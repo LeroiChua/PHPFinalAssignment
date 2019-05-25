@@ -19,43 +19,49 @@
                 </ul>
             </div>
         </nav>
-        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid style="padding-top:1px;">
+        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid
+            style="padding-top:1px;">
             <div class="uk-card-body">
                 <h3><b>Bagh Chal</b></h3>
                 <h4 class="uk-heading-bullet"><b>Sign up with your email address</b></h4>
                 <hr class="uk-divider-icon">
                 <!-- php coding below-->
-                <form class="uk-panel uk-panel-box uk-form">
+                <form class="uk-panel uk-panel-box uk-form" action=" " method="POST">
+                    <!-- call EntryController -->
+
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-s-text">User Name</label>
-                        <input class="uk-input" id="form-s-text" type="text">
+                        <input name="userName" class="uk-input" id="form-s-text" type="text"> <!-- userEmail for php-->
                     </div>
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-s-text">First Name</label>
-                        <input class="uk-input" id="form-s-text" type="text">
+                        <input name="firstName" class="uk-input" id="form-s-text" type="text"> <!-- firstname for php-->
                     </div>
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-s-text">Last Name</label>
-                        <input class="uk-input" id="form-s-text" type="text">
+                        <input name="lastName" class="uk-input" id="form-s-text" type="text"> <!-- lastName for php-->
                     </div>
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-s-email">Email Address</label>
-                        <input class="uk-input" id="form-s-email" type="email" placeholder="name@domain.com">
+                        <input name="userEmail" class="uk-input" id="form-s-email" type="email"
+                            placeholder="name@domain.com"> <!-- userEmail for php-->
                     </div>
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-s-password">Password</label>
-                        <input class="uk-input" id="form-s-password" type="password">
+                        <input name="userPassword" class="uk-input" id="form-s-password" type="password">
+                        <!-- userPassword for php-->
                     </div>
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-s-date">Date of birth</label>
-                        <input class="uk-input" id="form-s-date" type="date" placeholder="1970-01-01">
+                        <input name="userDOB" class="uk-input" id="form-s-date" type="date" placeholder="1970-01-01">
+                        <!-- DOB for php-->
                     </div>
                     <div class="uk-form-row">
                         <span class="uk-form-label">Gender</span>
                         <div class="uk-form-controls">
-                            <label><input type="checkbox">Male </label>
-                            <label><input type="checkbox">Female </label>
-                            <label><input type="checkbox"> Other</label>
+                            <label><input name="gender" value="male" type="radio">Male </label> <!-- Gender for php-->
+                            <label><input name="gender" value="female" type="radio">Female </label>
+                            <label><input name="gender" value="other" type="radio"> Other</label>
                         </div>
                     </div>
                     <hr>
