@@ -28,19 +28,24 @@
                 <h4 class="uk-heading-bullet"><b>Welcome to Bagh Chal Community</b></h4>
                 <hr class="uk-divider-icon">
                 <!-- php coding below-->
-                <form>
+                <form action="EntryController.php" method="POST">
+                    <!-- call the entrycontroller -->
+
                     <div class="uk-margin">
                         <div class="uk-inline uk-width-1-1">
                             <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                            <input class="uk-input uk-form-large" type="text">
+                            <input name="userEmail" class="uk-input uk-form-large" type="text">
+                            <!-- userEmail for php-->
                         </div>
                     </div>
                     <div class="uk-margin">
                         <div class="uk-inline uk-width-1-1">
                             <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                            <input class="uk-input uk-form-large" type="password">
+                            <input name="userPassword" class="uk-input uk-form-large" type="password">
+                            <!-- userPassword for php-->
                         </div>
                     </div>
+                    <!-- ink to another page -->
                     <div class="uk-margin">
                         <a class="uk-width-1-1 uk-button uk-button-primary uk-button-large"
                             href="BaghChal_feature.html">Login</a>
@@ -48,8 +53,9 @@
                     <div class="uk-text-small uk-text-center">
                         Not registered? <a href="BaghChal_signUp.html">Create an account</a>
                     </div>
+
                 </form>
-               <!-- php coding end--> 
+                <!-- php coding end-->
             </div>
         </div>
     </div>
