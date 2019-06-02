@@ -1,5 +1,10 @@
 <?php
-
+/*
+post.php gathers the inputs from the postform.php form. It prepend the tagged
+user and appends the hashtag.
+It then adds the post to the post table and if there is a user tag it adds that
+to the tag table. 
+*/
 session_save_path(./);
 session_start();
 
@@ -15,20 +20,20 @@ if(isset($_SESSION['user']))
     $taggedUserId = $_SESSION['taggedUser'];
     //prepend tagged user name to the post.
     $taggedUserName = getUserName($db, $taggedUserId);
-    $thePost = addTagtoPost($taggedUserName, $thePost);
+    $thePost = addUserTagtoPost($taggedUserName, $thePost);
   }
 
   //make the post. The make post function should return the post id for use in tag user.
   $postId = makePost($db, $userid, $theTitle, $thePost);
   // add tag to database.
   tagUser($db, $taggedUser, $postId);
-  //send back to post form 
+  //send back to post form
   header('Location:postform.php')
 
 }
 else
 {
-  //send to login page if not logged in.
-  header('Location:login.php');
+  //send to login page if not logged. Uses query params to send a refereal back to this page.
+  header("Location:login.php?location=" . urlencode($_SERVER['REQUEST_URI']));
 }
 ?>
