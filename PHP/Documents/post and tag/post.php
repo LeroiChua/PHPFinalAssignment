@@ -3,7 +3,7 @@
 post.php gathers the inputs from the postform.php form. It prepend the tagged
 user and appends the hashtag.
 It then adds the post to the post table and if there is a user tag it adds that
-to the tag table. 
+to the tag table.
 */
 session_save_path(./);
 session_start();
@@ -21,6 +21,13 @@ if(isset($_SESSION['user']))
     //prepend tagged user name to the post.
     $taggedUserName = getUserName($db, $taggedUserId);
     $thePost = addUserTagtoPost($taggedUserName, $thePost);
+  }
+  if(isset($_SESSION['hashTag']))
+  {
+    $taggedUserId = $_SESSION['taggedUser'];
+    //append hash tag to the post.
+    $taggedUserName = getUserName($db, $taggedUserId);
+    $thePost = addHashTagtoPost($hashTag, $thePost);
   }
 
   //make the post. The make post function should return the post id for use in tag user.

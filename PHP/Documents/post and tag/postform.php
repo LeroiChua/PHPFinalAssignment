@@ -32,10 +32,16 @@ if( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
         $taggedUser = $_POST['taggedUser'];
         $_SESSION['taggedUser'] = $taggedUser;
       }
+      // check for $hashTag
+      if(isset($_POST['hashTag']))
+      {
+          $hashTag = $_POST['hashTag'];
+          $_SESSION['hashTag'] = $hashTag;
+      }
       $_SESSION['theTitle'] = $theTitle;
       $_SESSION['thePost'] = $thePost;
 
-      header('Location:post.php')
+      header('Location:post.php');
     }
 
   }
