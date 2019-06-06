@@ -5,14 +5,14 @@ class EntryController //extends AbstractEntryController
 	$loginEmail;
 	$loginPassword;
 	
-	$register = new Register();
-	$registerUserName;
-	$registerFirstName
-	$registerLastName;
-	$registerEmail;
-	$registerPassword;
-	$registerDOB;
-	$registerGender;
+// 	$register = new Register();
+// 	$registerUserName;
+// 	$registerFirstName
+// 	$registerLastName;
+// 	$registerEmail;
+// 	$registerPassword;
+// 	$registerDOB;
+// 	$registerGender;
 	
 	function collectLoginsData() {
 		$login->collectUserInput();
@@ -20,15 +20,15 @@ class EntryController //extends AbstractEntryController
 		$loginPassword = $login->getPassword();
 	}
 	
-	function collectRegisterData() {
-		$registerUserName = $register->collectUserName();
-		$registerFirstName = $register->collectUserFirstName();
-		$registerLastName = $register->collectUserLastName();
-		$registerEmail = $register->collectUserEmail();
-		$registerPassword = $register->collectUserPassword();
-		$registerDOB = $register->collectUserDOB();
-		$registerGender = $register->collectUserGender();
-	}
+// 	function collectRegisterData() {
+// 		$registerUserName = $register->collectUserName();
+// 		$registerFirstName = $register->collectUserFirstName();
+// 		$registerLastName = $register->collectUserLastName();
+// 		$registerEmail = $register->collectUserEmail();
+// 		$registerPassword = $register->collectUserPassword();
+// 		$registerDOB = $register->collectUserDOB();
+// 		$registerGender = $register->collectUserGender();
+// 	}
 	
 }
 
