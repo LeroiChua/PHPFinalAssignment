@@ -14,7 +14,7 @@ if(isset($_SESSION['user']))
   //get the variables from the session. Sanitize the title and post.
   $userid = $_SESSION['user'];
   $theTitle = filter_var($_SESSION['theTitle'], FILTER_SANITIZE_SPECIAL_CHARS);
-  $thePost = filter_var()$_SESSION['thePost'], FILTER_SANITIZE_SPECIAL_CHARS);
+  $thePost = filter_var($_SESSION['thePost'], FILTER_SANITIZE_SPECIAL_CHARS);
   if(isset($_SESSION['taggedUser']))
   {
     $taggedUserId = $_SESSION['taggedUser'];
