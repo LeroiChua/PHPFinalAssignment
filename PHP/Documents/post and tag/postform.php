@@ -26,18 +26,7 @@ if( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     // check to see that there is a title and some post text.
     if(isValidForm($theTitle) and isValidForm($thePost))
     {
-      // check for a tagged user
-      if(isset($_POST['taggedUser']))
-      {
-        $taggedUser = $_POST['taggedUser'];
-        $_SESSION['taggedUser'] = $taggedUser;
-      }
-      // check for $hashTag
-      if(isset($_POST['hashTag']))
-      {
-          $hashTag = $_POST['hashTag'];
-          $_SESSION['hashTag'] = $hashTag;
-      }
+     
       $_SESSION['theTitle'] = $theTitle;
       $_SESSION['thePost'] = $thePost;
 

@@ -1,48 +1,32 @@
 <?php
 Class Post
 {
-    private $userId;
-    private $theTitle;
-    private $thePost;
-    private $taggedUser;
-    private $hashTag;
-    private $postId;
-    public function __construct($db, $id, $title, $content, $userTag="", $postTag="")
+    protected $userId;
+    protected $theTitle;
+    protected $thePost;
+    protected $postId; // used if this is a comment on a post. is the id of the post it is reffering to.
+    protected $date;
+    public function __construct($id, $title, $content, $postId = null)
     {
         $this->userId = $id;
         $this->theTitle = $title;
         $this->thePost = $content;
-        $this->taggedUser = $userTag;
-        $this->hashTag = $postTag;
-        if($taggedUser != "")
-        {
-            $this->thePost = $this->addUserTagToPost($this->taggedUser, $this->$thePost);
-        }
-        return $this->makePost($db);
+        $this->date = date("Y-m-d");
+        $this->postId = $postId;
     }
 
-    private function addUserTagToPost($taggedUserName, $thePost)
-    {
-        // prepends the username (with @ prefix) to the post.
-        $thePost = "@".$taggedUserName." ".$thePost;
-        return $thePost;
-    }
+}
 
-    private function addHashTagToPost($hashTag, $thePost)
-    {
-        //append the hash tag (with # prefix) to the post.
-        $thePost = $thePost." #".$hashTag;
-        return $thePost;
-    }
 
-    private function makePost($db)
+
+Class CreatePost extends Post
+{
+    public function addPostToDB()
     {
-        // add the post to the post mysql_list_table
-        $date = date("Y-m-d");
-        $sql = "INSERT INTO post (UID, title, postTime, postContent) Values ($this->userId, $this->theTitle, $date, $this->thePost)";
-        $result = $db->query($sql);
+        $sql = "INSERT INTO post (UID, title, postTime, postContent)
+        Values ($this->userid, $this->theTitle, $this->date, $this->thePost)";
+        $result = $db->insert($sql);// assuming there is an insert method.
         return $result;
     }
-
 }
 ?>
